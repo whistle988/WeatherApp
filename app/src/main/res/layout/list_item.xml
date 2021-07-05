@@ -2,6 +2,7 @@
 
 
 <com.google.android.material.card.MaterialCardView
+    android:id="@+id/btnClick"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -11,7 +12,8 @@
     app:contentPaddingBottom="15dp"
     app:cardCornerRadius="12dp"
     app:cardElevation="8dp"
-    >
+    android:clickable="true"
+    android:focusable="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

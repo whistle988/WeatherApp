@@ -4,13 +4,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.weatherapp.R
 import com.example.weatherapp.data.model.WeatherResponse
-import org.w3c.dom.Text
+import com.google.android.material.card.MaterialCardView
 
 
-class WeatherListAdapter(private var weatherList: List<WeatherResponse>) : RecyclerView.Adapter<WeatherListAdapter.ViewHolder>() {
+class WeatherListAdapter(private var weatherList: List<WeatherResponse>) :
+    RecyclerView.Adapter<WeatherListAdapter.ViewHolder>() {
 
     fun setWeatherList(list: List<WeatherResponse>) {
         weatherList = list
@@ -28,20 +31,29 @@ class WeatherListAdapter(private var weatherList: List<WeatherResponse>) : Recyc
         return weatherList.size
     }
 
-    inner class ViewHolder(var v : View) : RecyclerView.ViewHolder(v) {
+    inner class ViewHolder(v : View) : RecyclerView.ViewHolder(v) {
 
         val cityName : TextView
         val temp: TextView
+        val btnClick: MaterialCardView
 
         init {
             cityName = v.findViewById(R.id.city_name)
             temp = v.findViewById(R.id.temp)
+            btnClick = v.findViewById(R.id.btnClick)
         }
 
         fun bind(response : WeatherResponse) {
             cityName.text = response.name
             temp.text = response.main.temp.toString()
             //view.app_image.setImageDrawable(weatherList[position].icon)
+            btnClick.setOnClickListener { view ->
+                //clickListener(response)
+                view.findNavController().navigate(R.id.action_weatherListFragment_to_weatherFragment)
+            }
+
+
+
         }
     }
 
