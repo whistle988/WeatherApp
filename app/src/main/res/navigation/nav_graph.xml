@@ -9,7 +9,11 @@
         android:id="@+id/weatherListFragment"
         android:name="com.example.weatherapp.ui.main.weatherlist.WeatherListFragment"
         android:label="weather_list_fragment"
-        tools:layout="@layout/weather_list_fragment" />
+        tools:layout="@layout/weather_list_fragment" >
+        <action
+            android:id="@+id/action_weatherListFragment_to_weatherFragment"
+            app:destination="@id/weatherFragment" />
+    </fragment>
     <fragment
         android:id="@+id/weatherFragment"
         android:name="com.example.weatherapp.ui.main.weather.WeatherFragment"
