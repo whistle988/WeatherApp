@@ -5,7 +5,9 @@ import android.view.View
 import androidx.annotation.LayoutRes
 import dagger.android.support.DaggerFragment
 
-abstract class BaseFragment(@LayoutRes contentLayoutId: Int) : DaggerFragment(contentLayoutId){
+abstract class BaseFragment : DaggerFragment(){
+
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

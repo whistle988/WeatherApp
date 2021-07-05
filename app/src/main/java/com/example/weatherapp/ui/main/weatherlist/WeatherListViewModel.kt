@@ -13,12 +13,13 @@ class WeatherListViewModel @Inject constructor(private val apiService : ApiServi
 
     var weatherList = MutableLiveData<List<WeatherResponse>>()
     lateinit var list : ListWeatherResponse
+    //private var cityList: ListWeatherResponse = ListWeatherResponse()
 
-    fun getWeatherListByIds(ids: List<Int>) {
+    fun getWeatherListByIds(ids: String) {
         viewModelScope.launch {
-            val r = apiService.getWeatherListByIds(ids.joinToString(separator = ","))
+            val r = apiService.getWeatherListByIds(ids, "metric")
             if (r.isSuccessful) {
-                weatherList.value = r.body()
+                weatherList.value = r.body()!!.list
                 //list.map { item -> item.toDomainModel() }
             }
         }

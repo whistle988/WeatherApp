@@ -15,7 +15,7 @@ class QueryInterceptor : Interceptor {
         var request: Request = chain.request()
         val url: HttpUrl = request.url.newBuilder()
             .addQueryParameter("appid", API_KEY)
-            .addQueryParameter("units", DataHolder.unit)
+            //.addQueryParameter("units", DataHolder.unit)
             .build()
         request = request.newBuilder().url(url).build()
         return chain.proceed(request)

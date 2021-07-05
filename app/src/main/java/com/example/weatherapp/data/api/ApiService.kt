@@ -10,8 +10,10 @@ import retrofit2.http.Query
 interface ApiService {
 
     @GET("group")
-    suspend fun getWeatherListByIds(@Query("id") id: String
-    ): Response<List<WeatherResponse>>
+    suspend fun getWeatherListByIds(
+        @Query("id") id: String,
+        @Query("units") units: String
+    ): Response<ListWeatherResponse>
 
     @GET("weather")
     suspend fun getWeather(

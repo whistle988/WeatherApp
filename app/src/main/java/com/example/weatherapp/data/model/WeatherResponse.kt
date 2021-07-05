@@ -1,11 +1,26 @@
 package com.example.weatherapp.data.model
 
+import android.annotation.SuppressLint
+import com.squareup.moshi.JsonAdapter
+import com.squareup.moshi.JsonClass
+import com.squareup.moshi.Moshi
 
+//@JsonClass(generateAdapter = true)
 data class ListWeatherResponse(
+    val cnt: Int,
     val list: List<WeatherResponse>
 )
 
+/*
+@SuppressLint("CheckResult")
+fun main() {
+    val adapter = Moshi.Builder().build().adapter(ListWeatherResponse::class.java)
+    adapter.fromJson("{"list":null}")
+}
+*/
+
 data class WeatherResponse(
+
     val base: String,
     val clouds: Clouds,
     val cod: Int,
@@ -19,21 +34,7 @@ data class WeatherResponse(
     val visibility: Int,
     val weather: List<Weather>,
     val wind: Wind
-) {
-    fun toDomainModel() =
-        CityWeather(
-            id,
-            name,
-            main.humidity,
-            main.pressure,
-            main.temp,
-            main.temp_max,
-            main.temp_min,
-            wind.speed,
-            weather.firstOrNull()?.main ?: "",
-            weather.firstOrNull()?.icon ?: ""
-        )
-}
+)
 
 data class Clouds(
     val all: Int
@@ -72,17 +73,4 @@ data class Wind(
     val deg: Int,
     val gust: Double,
     val speed: Double
-)
-
-data class CityWeather(
-    val id: Int = 0,
-    val name: String = "",
-    val humidity: Int = 0,
-    val pressure: Int = 0,
-    val temp: Double = 0.0,
-    val tempMax: Double = 0.0,
-    val tempMin: Double = 0.0,
-    val windSpeed: Double = 0.0,
-    val condition: String = "",
-    val icon: String = ""
 )
