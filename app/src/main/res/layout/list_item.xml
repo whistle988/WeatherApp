@@ -1,26 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
 
-    <LinearLayout
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="820dp"
+    app:cardUseCompatPadding="true"
+    app:contentPaddingBottom="15dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="8dp"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/city_name"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="18dp"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             android:text="cityName"/>
 
         <TextView
             android:id="@+id/temp"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="temperature"/>
-    </LinearLayout>
-</FrameLayout>
+            android:textStyle="bold"
+            android:text="temperature"
+            android:layout_marginEnd="100dp"
+            app:layout_constraintBottom_toBottomOf="@+id/city_name"
+            app:layout_constraintTop_toTopOf="@+id/city_name"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>
 
