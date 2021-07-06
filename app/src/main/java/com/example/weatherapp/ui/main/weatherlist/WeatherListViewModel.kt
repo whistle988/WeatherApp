@@ -12,27 +12,17 @@ import javax.inject.Inject
 class WeatherListViewModel @Inject constructor(private val apiService : ApiService) : ViewModel() {
 
     var weatherList = MutableLiveData<List<WeatherResponse>>()
-    lateinit var list : ListWeatherResponse
-    //private var cityList: ListWeatherResponse = ListWeatherResponse()
+
 
     fun getWeatherListByIds(ids: String) {
         viewModelScope.launch {
             val r = apiService.getWeatherListByIds(ids, "metric")
             if (r.isSuccessful) {
                 weatherList.value = r.body()!!.list
-                //list.map { item -> item.toDomainModel() }
             }
         }
     }
-/*
-    fun getWeather(lat: Double, lon: Double) {
-        viewModelScope.launch {
-            val r = apiService.getWeather(lat, lon)
-            if (r.isSuccessful) {
-                weatherList.value = r.body()
-            }
-        }
-    }*/
+
 
 
 }
