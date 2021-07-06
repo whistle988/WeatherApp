@@ -1,15 +1,15 @@
 package com.example.weatherapp.data.model.forecast
 
 
-data class ForecastList(
+/*data class ForecastList(
     val foreList: List<ForecastResponse>
-)
+)*/
 
 data class ForecastResponse(
     val city: City?,
     val cnt: Int,
     val cod: String,
-    val list: CityWeather?,
+    val list: List<CityWeather>?,
     val message: Int
 )
 
@@ -34,7 +34,7 @@ data class CityWeather(
     val rain: Rain?,
     val sys: Sys,
     val visibility: Int,
-    val weather: Weather?,
+    val weather: List<Weather>?,
     val wind: Wind?
 )
 
