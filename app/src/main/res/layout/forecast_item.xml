@@ -16,6 +16,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:text="Mon"
         tools:text="Mon" />
 
     <androidx.appcompat.widget.AppCompatImageView
@@ -25,7 +26,8 @@
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtForecastDay" />
+        app:layout_constraintTop_toBottomOf="@+id/txtForecastDay"
+        android:visibility="gone"/>
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tempTextView"
@@ -37,5 +39,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/weatherIcon"
+        android:text="30°\n16°"
         tools:text="30°\n16°" />
 </androidx.constraintlayout.widget.ConstraintLayout>

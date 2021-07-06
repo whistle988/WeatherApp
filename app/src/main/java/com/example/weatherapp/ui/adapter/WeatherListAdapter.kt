@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.weatherapp.R
@@ -50,16 +49,12 @@ class WeatherListAdapter(private var weatherList: List<WeatherResponse>) :
             temp.text = response.main.temp.toString()
             //view.app_image.setImageDrawable(weatherList[position].icon)
             btnClick.setOnClickListener { view ->
-                //clickListener(response)
                 view.findNavController().navigate(R.id.action_weatherListFragment_to_weatherFragment,
-                    Bundle().apply { putInt("id", response.id) })
-                debug("cityId = " + response.id)
+                    Bundle().apply {
+                        putInt("id", response.id)
+                        putString("cityName", response.name)})
 
-                //Bundle().apply { putDoubleArray("id", doubleArrayOf(response.coord.lat, response.coord.lon)) })
             }
-
-
-
         }
     }
 
