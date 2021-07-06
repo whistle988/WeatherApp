@@ -9,7 +9,6 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.weatherapp.R
 import com.example.weatherapp.data.model.WeatherResponse
-import com.example.weatherapp.extension.debug
 import com.google.android.material.card.MaterialCardView
 
 
@@ -46,8 +45,8 @@ class WeatherListAdapter(private var weatherList: List<WeatherResponse>) :
 
         fun bind(response : WeatherResponse) {
             cityName.text = response.name
-            temp.text = response.main.temp.toString()
-            //view.app_image.setImageDrawable(weatherList[position].icon)
+            temp.text = response.main?.temp.toString()
+
             btnClick.setOnClickListener { view ->
                 view.findNavController().navigate(R.id.action_weatherListFragment_to_weatherFragment,
                     Bundle().apply {

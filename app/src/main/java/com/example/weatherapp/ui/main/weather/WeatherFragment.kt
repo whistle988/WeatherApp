@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.weatherapp.R
 import com.example.weatherapp.ViewModelProviderFactory
 import com.example.weatherapp.databinding.WeatherFragmentBinding
-import com.example.weatherapp.extension.debug
 import com.example.weatherapp.ui.adapter.WeatherForecastAdapter
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
@@ -66,7 +65,7 @@ class WeatherFragment : DaggerFragment() {
         weatherViewModel.weatherCity.observe(viewLifecycleOwner, Observer {
             if (it != null) {
                 viewBinding.txtCity.text = it.name
-                viewBinding.txtCityTemp.text = "now " + it.main.temp.toString() + "°C"
+                viewBinding.txtCityTemp.text = "now " + it.main!!.temp.toString() + "°C"
             }
         })
     }

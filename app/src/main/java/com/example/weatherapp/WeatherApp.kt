@@ -9,10 +9,6 @@ class WeatherApp : BaseApplication() {
 
     override fun onCreate() {
         super.onCreate()
-        //setDefaultUiMode()
-    }
 
-    /*override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
-        return DaggerAppComponent.builder().application(this).build()
-    }*/
+    }
 }
