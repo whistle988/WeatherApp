@@ -15,8 +15,6 @@ import java.util.*
 class WeatherForecastAdapter (private var forecastList: List<CityWeather>) :
     RecyclerView.Adapter<WeatherForecastAdapter.ViewHolder>() {
 
-    private val limit = 18
-
     fun setForecastList(list: List<CityWeather>) {
         forecastList = list
     }
@@ -30,13 +28,6 @@ class WeatherForecastAdapter (private var forecastList: List<CityWeather>) :
     }
 
     override fun getItemCount(): Int {
-        /*if(forecastList.size > limit){
-            return limit
-        }
-        else
-        {
-            return forecastList.size
-        }*/
         return forecastList.size
     }
 
@@ -58,20 +49,11 @@ class WeatherForecastAdapter (private var forecastList: List<CityWeather>) :
             val date = format.parse(response.dt_txt)
             val dayOfTheWeek = DateFormat.format("MMMM.dd hh:mm aaa", date) as String // Thursday
 
-
-            //txtForecastDay.text = response.city.toString()
             txtForecastDay.text = dayOfTheWeek
-            //tempTextView.text = response.list.main.temp.toString()
             tempTextView.text = response.main!!.temp.toString()+"°C"
-            //view.app_image.setImageDrawable(weatherList[position].icon)
-
 
         }
     }
-
-    /*fun Long.getDayOfTheWeek(): String {
-        return SimpleDateFormat("EEE", Locale.US).format(Date(this * 1000))
-    }*/
 
 }
 

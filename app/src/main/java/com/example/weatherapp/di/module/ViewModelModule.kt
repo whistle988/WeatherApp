@@ -10,9 +10,6 @@ import dagger.multibindings.IntoMap
 
 @Module
 abstract class ViewModelModule {
-    /*@Binds
-    @AppScoped
-    abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory*/
 
     @Binds
     @IntoMap

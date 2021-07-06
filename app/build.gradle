@@ -87,18 +87,10 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
 
-    // picasso
-    implementation ("com.squareup.picasso:picasso:$picassoVersion"){
-        exclude group: "com.android.support"
-    }
-
     // dagger
     implementation "com.google.dagger:dagger:$daggerVersion"
     kapt "com.google.dagger:dagger-compiler:$daggerVersion"
     implementation "com.google.dagger:dagger-android-support:$daggerVersion"
     kapt "com.google.dagger:dagger-android-processor:$daggerVersion"
 
-    // Apache Commons Lang - доп утилиты для JAVA
-    implementation 'org.apache.commons:commons-lang3:3.11'
-    implementation 'org.apache.commons:commons-text:1.9'
 }

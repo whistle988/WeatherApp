@@ -6,8 +6,6 @@ import androidx.lifecycle.viewModelScope
 import com.example.weatherapp.data.api.ApiService
 import com.example.weatherapp.data.model.WeatherResponse
 import com.example.weatherapp.data.model.forecast.CityWeather
-import com.example.weatherapp.data.model.forecast.ForecastResponse
-import com.example.weatherapp.extension.debug
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -22,7 +20,6 @@ class WeatherViewModel @Inject constructor(private val apiService : ApiService):
             val r = apiService.getForecastCity(id, "metric")
             if (r.isSuccessful) {
                 forecastCityList.value = r.body()!!.list!!
-                //debug("forelist = " + forecastCityList)
             }
         }
     }
