@@ -19,8 +19,8 @@ abstract class ViewModelModule {
     @ViewModelKey(WeatherListViewModel::class)
     abstract fun bindWeatherListViewModel(viewModel: WeatherListViewModel): ViewModel
 
-    /*@Binds
+    @Binds
     @IntoMap
     @ViewModelKey(WeatherViewModel::class)
-    abstract fun bindWeatherViewModel(viewModel: WeatherViewModel): ViewModel*/
+    abstract fun bindWeatherViewModel(viewModel: WeatherViewModel): ViewModel
 }

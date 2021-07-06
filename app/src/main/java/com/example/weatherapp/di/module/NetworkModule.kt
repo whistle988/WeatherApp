@@ -19,7 +19,4 @@ class NetworkModule {
     internal fun provideWeatherService(retrofit: Retrofit): ApiService =
         retrofit.create(ApiService::class.java)
 
-    /*@Provides
-    internal fun provideWeatherForecastService(retrofit: Retrofit): ApiService =
-        retrofit.create(ApiService::class.java)*/
 }
