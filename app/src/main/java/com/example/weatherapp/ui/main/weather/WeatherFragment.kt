@@ -52,7 +52,7 @@ class WeatherFragment : DaggerFragment() {
         }
 
         adapter = WeatherForecastAdapter(listOf())
-        val layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        val layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         viewBinding.weatherForecastRecyclerView.layoutManager = layoutManager
 
         weatherViewModel.forecastCityList.observe(viewLifecycleOwner, Observer {

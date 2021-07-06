@@ -23,7 +23,8 @@ interface ApiService {
 
     @GET("forecast")
     suspend fun getForecastCity(
-        @Query("id") id: Int
+        @Query("id") id: Int,
+        @Query("units") units: String
     ): Response<ForecastResponse>
 
 

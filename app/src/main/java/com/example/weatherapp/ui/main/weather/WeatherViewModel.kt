@@ -19,7 +19,7 @@ class WeatherViewModel @Inject constructor(private val apiService : ApiService):
 
     fun getForecast(id: Int) {
         viewModelScope.launch {
-            val r = apiService.getForecastCity(id)
+            val r = apiService.getForecastCity(id, "metric")
             if (r.isSuccessful) {
                 forecastCityList.value = r.body()!!.list!!
                 //debug("forelist = " + forecastCityList)

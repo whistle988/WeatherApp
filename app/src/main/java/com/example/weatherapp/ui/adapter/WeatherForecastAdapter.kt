@@ -4,6 +4,7 @@ import android.text.format.DateFormat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Filterable
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.weatherapp.R
@@ -14,7 +15,7 @@ import java.util.*
 class WeatherForecastAdapter (private var forecastList: List<CityWeather>) :
     RecyclerView.Adapter<WeatherForecastAdapter.ViewHolder>() {
 
-    private val limit = 3
+    private val limit = 18
 
     fun setForecastList(list: List<CityWeather>) {
         forecastList = list
@@ -29,14 +30,14 @@ class WeatherForecastAdapter (private var forecastList: List<CityWeather>) :
     }
 
     override fun getItemCount(): Int {
-        if(forecastList.size > limit){
+        /*if(forecastList.size > limit){
             return limit
         }
         else
         {
             return forecastList.size
-        }
-        //return forecastList.size
+        }*/
+        return forecastList.size
     }
 
     inner class ViewHolder(v : View) : RecyclerView.ViewHolder(v) {
@@ -55,22 +56,22 @@ class WeatherForecastAdapter (private var forecastList: List<CityWeather>) :
 
             val format =  SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
             val date = format.parse(response.dt_txt)
-            val dayOfTheWeek = DateFormat.format("EEEE", date) as String // Thursday
+            val dayOfTheWeek = DateFormat.format("MMMM.dd hh:mm aaa", date) as String // Thursday
 
 
             //txtForecastDay.text = response.city.toString()
             txtForecastDay.text = dayOfTheWeek
             //tempTextView.text = response.list.main.temp.toString()
-            tempTextView.text = response.main!!.temp.toString()
+            tempTextView.text = response.main!!.temp.toString()+"°C"
             //view.app_image.setImageDrawable(weatherList[position].icon)
 
 
         }
     }
 
-    fun Long.getDayOfTheWeek(): String {
+    /*fun Long.getDayOfTheWeek(): String {
         return SimpleDateFormat("EEE", Locale.US).format(Date(this * 1000))
-    }
+    }*/
 
 }
 
